@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+}
+.main .display {
+  flex: 1;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 8px 1px rgba(50, 50, 50, 0.22);
+}
+.main .display h1 {
+  flex: 1;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.main .display .numero {
+    padding: 2rem;
+    font-size: 1.7rem;
+    text-align: center;
+}
