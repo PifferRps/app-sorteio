@@ -8,11 +8,13 @@ import { numeroAleatorio } from "./Helpers/Ramdom";
 function App() {
   const [numMax, setNumMax] = useState<number>(0);
   const [numMin, setNumMin] = useState<number>(0);
-  const [sorteado, setSorteado] = useState<number>(0);
+  const [sorteado, setSorteado] = useState<number[]>([]);
+
+  React.useEffect(() => {}, [sorteado]);
 
   const Sortear = () => {
     if (numMax && numMin) {
-      setSorteado(numeroAleatorio(numMax, numMin));
+      setSorteado([...sorteado, numeroAleatorio(numMax, numMin)]);
     } else {
       alert("Digite todos os campos");
     }
@@ -48,7 +50,7 @@ function App() {
             <Display numeroSorteado={sorteado} />
           </div>
           <div className={styles.display2}>
-            <Display2 />
+            <Display2 numeroSorteado={sorteado} />
           </div>
         </div>
       </div>

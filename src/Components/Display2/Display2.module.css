@@ -14,7 +14,13 @@
   text-align: center;
 }
 .main .display .numero {
-    padding: 2rem;
-    font-size: 1.7rem;
-    text-align: center;
+  padding: 2rem;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.cardNumber {
+  flex: 1;
+  padding: 1rem;
+  width: 100;
+  box-shadow: 1px 1px 8px 1px rgba(50, 50, 50, 0.22);
 }
