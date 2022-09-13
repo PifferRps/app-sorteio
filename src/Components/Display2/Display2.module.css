@@ -24,3 +24,18 @@
   width: 100;
   box-shadow: 1px 1px 8px 1px rgba(50, 50, 50, 0.22);
 }
+.cardNumber2 {
+  background-color: rgba(75, 219, 75, 0.567);
+  flex: 1;
+  border-color: rgb(19, 67, 12);
+  border-style: solid;
+  border-width: 2px;
+  padding: 1rem;
+  width: 100;
+  box-shadow: 1px 1px 8px 1px rgba(50, 50, 50, 0.22);
+  transition: all ease 0.3s;
+}
+
+.cardNumber2:hover {
+  opacity: 0.8;
+}

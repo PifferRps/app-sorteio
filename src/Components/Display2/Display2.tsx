@@ -7,7 +7,7 @@ export const Display2 = ({ numeroSorteado }: Props) => {
   const exibiNumeros = [...numeroSorteado]
     .reverse()
     .map((numeros, key, numeroSorteado) => (
-      <h1 key={key} className={styles.cardNumber}>
+      <h1 key={key} className={key == 0 ? styles.cardNumber2 : styles.cardNumber}>
         {numeros}
       </h1>
     ));

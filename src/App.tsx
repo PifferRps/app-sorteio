@@ -20,6 +20,12 @@ function App() {
     }
   };
 
+  const Limpar = () => {
+    setNumMax(0);
+    setNumMin(0);
+    setSorteado([]);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.container}>
@@ -29,12 +35,14 @@ function App() {
           <input
             type="number"
             placeholder="Digite o número de Inicio"
+            value={numMin > 0 ? numMin : ''}
             onChange={(e) => setNumMin(parseFloat(e.target.value))}
           />
           <p>Fim</p>
           <input
             type="number"
             placeholder="Digite o número de Fim"
+            value={numMax > 0 ? numMax : ''}
             onChange={(e) => setNumMax(parseFloat(e.target.value))}
           />
           <div className={styles.checkbox}>
@@ -43,7 +51,12 @@ function App() {
               Pode Sortear 2x o mesmo número?{" "}
             </span>
           </div>
-          <button onClick={Sortear}>Sortear</button>
+          <button className={styles.botaoSortear} onClick={Sortear}>
+            Sortear
+          </button>
+          <div className={styles.botaoLimpar}>
+            <button onClick={Limpar}>Limpar</button>
+          </div>
         </div>
         <div className={styles.right}>
           <div className={styles.display}>
