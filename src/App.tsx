@@ -11,10 +11,31 @@ function App() {
   const [sorteado, setSorteado] = useState<number[]>([]);
 
   React.useEffect(() => {}, [sorteado]);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   const Sortear = () => {
     if (numMax && numMin) {
-      setSorteado([...sorteado, numeroAleatorio(numMax, numMin)]);
+      if (isChecked) {
+        var stop;
+        var loop = numMax - numMin;
+        if (loop != sorteado.length) {
+          while (loop > 0) {
+            let num = numeroAleatorio(numMax, numMin);
+            if (!sorteado.includes(num)) {
+              setSorteado([...sorteado, num]);
+              loop--;
+            }
+          }
+        } else {
+          alert("acabou");
+        }
+      } else {
+        setSorteado([...sorteado, numeroAleatorio(numMax, numMin)]);
+      }
     } else {
       alert("Digite todos os campos");
     }
@@ -24,6 +45,7 @@ function App() {
     setNumMax(0);
     setNumMin(0);
     setSorteado([]);
+    setIsChecked(false);
   };
 
   return (
@@ -35,18 +57,22 @@ function App() {
           <input
             type="number"
             placeholder="Digite o número de Inicio"
-            value={numMin > 0 ? numMin : ''}
+            value={numMin > 0 ? numMin : ""}
             onChange={(e) => setNumMin(parseFloat(e.target.value))}
           />
           <p>Fim</p>
           <input
             type="number"
             placeholder="Digite o número de Fim"
-            value={numMax > 0 ? numMax : ''}
+            value={numMax > 0 ? numMax : ""}
             onChange={(e) => setNumMax(parseFloat(e.target.value))}
           />
           <div className={styles.checkbox}>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
             <span className={styles.span}>
               Pode Sortear 2x o mesmo número?{" "}
             </span>
